@@ -1,0 +1,45 @@
+﻿workflows:
+  ios-maui:
+    name: iOS MAUI Build
+    max_build_duration: 60
+    environment:
+      vars:
+        DOTNET_VERSION: "8.0.100"
+        PROJECT_PATH: "MauiApp6/MauiApp6.csproj"  # Ensure this is correct!
+        OUTPUT_DIR: "$CM_BUILD_DIR/output"
+    scripts:
+      - name: Debug - Check Files
+        script: |
+          echo "Listing files in the repository..."
+          ls -R
+      - name: Install .NET and MAUI
+        script: |
+          echo "Installing .NET SDK $DOTNET_VERSION..."
+          curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 8.0
+          export PATH="$HOME/.dotnet:$PATH"
+          echo "Verifying .NET installation..."
+          dotnet --version
+          dotnet workload install maui
+      - name: Restore and Build .NET MAUI iOS App
+        script: |
+          export PATH="$HOME/.dotnet:$PATH"
+          dotnet restore "$PROJECT_PATH"
+          dotnet publish "$PROJECT_PATH" -c Release -f net8.0-ios \
+            /p:RuntimeIdentifier=ios-arm64 \
+            /p:EnableAssemblyILStripping=false \
+            /p:BuildIpa=true \
+            /p:CodesignKey="-" \
+            /p:CodesignProvision="-" \
+            /p:OutputPath="$CM_BUILD_DIR/output"
+      - name: Debug - Check IPA Output
+        script: |
+          echo "Checking if the output folder exists..."
+          ls -la $CM_BUILD_DIR/output || echo "Output directory does not exist!"
+          echo "Searching for IPA files in the entire workspace..."
+          find $CM_BUILD_DIR -name "*.ipa" || echo "No IPA files found!"
+      - name: Move IPA to Artifacts
+        script: |
+          mkdir -p $CM_BUILD_DIR/ios_output
+          find $CM_BUILD_DIR -name "*.ipa" -exec mv {} $CM_BUILD_DIR/ios_output/ \;
+    artifacts:
+      - ios_output/*.ipa

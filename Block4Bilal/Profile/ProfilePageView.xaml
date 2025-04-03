@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Block4Bilal.Profile.ProfilePageView"
+             Title="Profil Ansicht">
+    <CollectionView x:Name="profilesCollectionView" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame Padding="10" Margin="5" BackgroundColor="#ffdede" BorderColor="#b5b5b5" CornerRadius="10" HasShadow="True">
+                    <VerticalStackLayout Padding="10" Spacing="2">
+                        <Label Text="Name:" FontSize="18" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Label Text="{Binding FullName}" TextColor="Gray" FontSize="18" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Label Text="Straße:" FontSize="14" Margin="2"/>
+                        <Label Text="{Binding Street}" FontSize="14" Margin="2" TextColor="Gray"/>
+                        <Label Text="Straße:" FontSize="14" Margin="2"/>
+                        <Label Text="{Binding Zip}" FontSize="14" Margin="2" TextColor="Gray"/>
+                        <Label Text="Straße:" FontSize="14" Margin="2"/>
+                        <Label Text="{Binding City}" FontSize="14" Margin="2" TextColor="Gray"/>
+                        <Label Text="Straße:" FontSize="14" Margin="2"/>
+                        <Label Text="{Binding Phone}" FontSize="14" Margin="2" TextColor="Gray"/>
+                        <Button Text="Profil bearbeiten" Background ="Gray" Clicked="OnEditProfileClicked"/>
+                        <Button Text="Profil löschen" Background ="Red" Clicked="OnDeleteProfileClicked"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>

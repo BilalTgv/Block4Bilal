@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Block4Bilal.Profile.ProfilePageEdit"
+             Title="Profil bearbeiten">
+    <VerticalStackLayout Padding="10" Spacing="6">
+        <Label FontSize="Large" Text="Profil bearbeiten"/>
+        <Label Text="Name:"/>
+        <Entry x:Name="fullnameEntry" Text="{Binding FullName}"/>
+        <Label Text="Straße:"/>
+        <Entry x:Name="streetEntry" Text="{Binding Street}"/>
+        <Label Text="Postleitzahl:"/>
+        <Entry x:Name="zipEntry" Text="{Binding Zip}"/>
+        <Label Text="Stadt:"/>
+        <Entry x:Name="cityEntry" Text="{Binding City}"/>
+        <Label Text="Telefon:"/>
+        <Entry x:Name="phoneEntry" Text="{Binding Phone}"/>
+
+        <Button Text="Änderungen speichern"  Background ="Green" Clicked="OnSaveChangesClicked"/>
+    </VerticalStackLayout>
+</ContentPage>

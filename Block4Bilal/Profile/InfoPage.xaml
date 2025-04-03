@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Block4Bilal.Profile.InfoPage"
+             Title="Info">
+    <VerticalStackLayout Padding="10" Spacing="6">
+        <Label FontSize="Large" FontAttributes="Bold" Text="Unsere Infos"/>
+        <Label Text="Adresse:" FontAttributes="Italic"/>
+        <Label Text="Musterstraße 1, 1220 Wien"/>
+        <Label Text=""/>
+        <Label Text="Tel:" FontAttributes="Italic"/>
+        <Label Text="+43 676 1842755"/>
+        <Label Text=""/>
+        <Label Text="App erstellt von: " FontAttributes="Italic"/>
+        <Label Text="Bilal Tungaev" FontAttributes="Bold"/>
+        <Label Text=""/>
+        <Label Text=""/>
+        <Image Source="cat.gif" x:Name="imgLoader" HeightRequest="300" HorizontalOptions="Center" IsAnimationPlaying="True" />
+
+    </VerticalStackLayout>
+    
+</ContentPage>
+    

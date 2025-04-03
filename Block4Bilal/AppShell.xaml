@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Block4Bilal.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Block4Bilal"
+    xmlns:profile="clr-namespace:Block4Bilal.Profile"
+    Shell.FlyoutBehavior="Flyout"
+    Title="Block4Bilal">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="FA-5-Solid" Glyph="{x:StaticResource IconHome}" Color="Black"/>
+        </ShellContent.Icon>
+    </ShellContent>
+
+    <ShellContent
+        Title="Profile"
+        ContentTemplate="{DataTemplate profile:ProfilePage}"
+        Route="ProfilePage">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="FA-5-Solid" Glyph="{x:StaticResource IconUserCircle}" Color="Black"/>
+        </ShellContent.Icon>
+    </ShellContent>
+    
+    <ShellContent
+    Title="Profil Ansehen"
+    ContentTemplate="{DataTemplate profile:ProfilePageView}"
+    Route="ProfilePageView">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="FA-5-Solid" Glyph="{x:StaticResource IconBook}" Color="Black"/>
+        </ShellContent.Icon>
+    </ShellContent>
+    
+    <ShellContent
+    Title="Information"
+    ContentTemplate="{DataTemplate profile:InfoPage}"
+    Route="InfoPage">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="FA-5-Solid" Glyph="{x:StaticResource IconInfoCircle}" Color="Black"/>
+        </ShellContent.Icon>
+    </ShellContent>
+
+
+
+</Shell>
